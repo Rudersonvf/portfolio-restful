@@ -5,6 +5,7 @@ import br.com.ruderson.portfolio_restful.projections.ExperienceSummaryProjection
 import br.com.ruderson.portfolio_restful.services.ExperienceServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -30,22 +31,24 @@ public class ExperienceController {
         return ResponseEntity.ok(experienceDTO);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<ExperienceDTO> createExperience(@RequestBody @Valid ExperienceDTO dto) {
         ExperienceDTO createdExperience = experienceService.insert(dto);
         return ResponseEntity.created(URI.create("/experiences/" + createdExperience.getId())).body(createdExperience);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<ExperienceDTO> updateExperience(@PathVariable Long id,@Valid @RequestBody ExperienceDTO dto) {
         dto = experienceService.update(id, dto);
         return ResponseEntity.ok(dto);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteExperience(@PathVariable Long id) {
         experienceService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
 }

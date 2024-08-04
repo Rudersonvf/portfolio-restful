@@ -1,6 +1,6 @@
 package br.com.ruderson.portfolio_restful.DTO;
 
-import br.com.ruderson.portfolio_restful.validations.ValidDateRange;
+import br.com.ruderson.portfolio_restful.DTO.validations.ValidDateRange;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

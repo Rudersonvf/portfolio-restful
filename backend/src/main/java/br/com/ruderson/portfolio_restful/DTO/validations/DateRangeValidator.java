@@ -1,4 +1,4 @@
-package br.com.ruderson.portfolio_restful.validations;
+package br.com.ruderson.portfolio_restful.DTO.validations;
 
 import br.com.ruderson.portfolio_restful.DTO.ExperienceDTO;
 import jakarta.validation.ConstraintValidator;
