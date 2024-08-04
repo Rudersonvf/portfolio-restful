@@ -3,6 +3,7 @@ package br.com.ruderson.portfolio_restful.controller;
 import br.com.ruderson.portfolio_restful.DTO.ExperienceDTO;
 import br.com.ruderson.portfolio_restful.projections.ExperienceSummaryProjection;
 import br.com.ruderson.portfolio_restful.services.ExperienceServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,13 +31,13 @@ public class ExperienceController {
     }
 
     @PostMapping
-    public ResponseEntity<ExperienceDTO> createExperience(@RequestBody ExperienceDTO dto) {
+    public ResponseEntity<ExperienceDTO> createExperience(@RequestBody @Valid ExperienceDTO dto) {
         ExperienceDTO createdExperience = experienceService.insert(dto);
         return ResponseEntity.created(URI.create("/experiences/" + createdExperience.getId())).body(createdExperience);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ExperienceDTO> updateExperience(@PathVariable Long id, @RequestBody ExperienceDTO dto) {
+    public ResponseEntity<ExperienceDTO> updateExperience(@PathVariable Long id,@Valid @RequestBody ExperienceDTO dto) {
         dto = experienceService.update(id, dto);
         return ResponseEntity.ok(dto);
     }
