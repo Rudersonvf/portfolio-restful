@@ -3,33 +3,32 @@ package br.com.ruderson.portfolio_restful.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "tb_category")
+@Table(name = "tb_image")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "projects")
-public class Category {
+@ToString
+public class ProjectImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String path;
+    private Boolean imgCover;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<Project> projects = new HashSet<>();
-
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return Objects.equals(id, category.id);
+        ProjectImage image = (ProjectImage) o;
+        return Objects.equals(id, image.id);
     }
 
     @Override

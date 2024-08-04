@@ -12,8 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = {"categories", "skills"})
-public class Projects {
+@ToString(exclude = {"categories", "skills", "projectImages"})
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -22,7 +22,9 @@ public class Projects {
     private String description;
     private String githubUrl;
     private String liveUrl;
-    private Set<String> imgPath;
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProjectImage> projectImages = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "tb_project_category",
@@ -35,5 +37,4 @@ public class Projects {
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private Set<Skill> skills = new HashSet<>();
-
 }
