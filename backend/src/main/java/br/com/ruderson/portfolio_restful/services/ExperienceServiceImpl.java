@@ -22,9 +22,6 @@ public class ExperienceServiceImpl implements ExperienceService{
     @Override
     @Transactional
     public List<ExperienceSummaryProjection> findAll() {
-        List<Experience> entity = new ArrayList<>();
-
-
-        return List.of();
+        return experienceRepository.findAllProjectedBy();
     }
 }

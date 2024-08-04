@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
-    @Query("SELECT e.position, e.company, e.start_date, e.end_date FROM Experience e")
+    @Query("SELECT e.position AS position, e.company AS company, e.startDate AS startDate, e.endDate AS endDate " +
+            "FROM Experience e")
     List<ExperienceSummaryProjection> findAllProjectedBy();
 }
