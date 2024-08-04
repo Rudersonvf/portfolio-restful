@@ -3,6 +3,7 @@ package br.com.ruderson.portfolio_restful.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -23,9 +24,9 @@ public class Experience {
     private String country;
     private String description;
     @Column(name = "start_date")
-    private String startDate;
+    private LocalDate startDate;
     @Column(name = "end_date")
-    private String endDate;
+    private LocalDate endDate;
 
     @Override
     public boolean equals(Object o) {
