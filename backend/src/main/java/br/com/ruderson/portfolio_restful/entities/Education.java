@@ -3,6 +3,7 @@ package br.com.ruderson.portfolio_restful.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -20,9 +21,9 @@ public class Education {
     private Integer workload;
     private String institution;
     @Column(name = "start_date")
-    private String startDate;
+    private LocalDate startDate;
     @Column(name = "end_date")
-    private String endDate;
+    private LocalDate endDate;
     private String certificateUrl;
 
     @Override
