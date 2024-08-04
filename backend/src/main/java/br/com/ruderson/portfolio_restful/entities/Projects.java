@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"categories", "skills"})
 public class Projects {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,14 +24,12 @@ public class Projects {
     private String liveUrl;
     private Set<String> imgPath;
 
-    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "tb_project_category",
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "tb_project_skill",
             joinColumns = @JoinColumn(name = "project_id"),
