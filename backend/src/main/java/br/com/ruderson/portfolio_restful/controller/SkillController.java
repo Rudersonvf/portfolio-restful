@@ -3,6 +3,7 @@ package br.com.ruderson.portfolio_restful.controller;
 import br.com.ruderson.portfolio_restful.DTO.SkillDTO;
 import br.com.ruderson.portfolio_restful.projections.SkillSummaryProjection;
 import br.com.ruderson.portfolio_restful.services.SkillServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -33,14 +34,14 @@ public class SkillController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseEntity<SkillDTO> insert(@RequestBody SkillDTO dto) {
+    public ResponseEntity<SkillDTO> insert(@RequestBody @Valid SkillDTO dto) {
         SkillDTO result = skillService.save(dto);
         return ResponseEntity.created(URI.create("/skills/" + result.getId())).body(result);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/{id}")
-    public ResponseEntity<SkillDTO> update(@PathVariable Long id, @RequestBody SkillDTO dto) {
+    public ResponseEntity<SkillDTO> update(@PathVariable Long id, @Valid @RequestBody SkillDTO dto) {
         SkillDTO result = skillService.update(id, dto);
         return ResponseEntity.ok(result);
     }
@@ -51,5 +52,4 @@ public class SkillController {
         skillService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
 }

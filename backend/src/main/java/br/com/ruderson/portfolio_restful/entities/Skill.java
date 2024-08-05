@@ -18,6 +18,7 @@ public class Skill {
     private Long id;
     private String name;
     private String level;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private String documentationUrl;
     private String iconPath;
