@@ -19,7 +19,10 @@ public class Project {
     @Column(nullable = false)
     private Long id;
     private String name;
-    private String description;
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
     private String githubUrl;
     private String liveUrl;
 

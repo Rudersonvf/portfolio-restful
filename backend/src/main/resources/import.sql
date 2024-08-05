@@ -27,16 +27,16 @@ INSERT INTO tb_experience (position, company, city, state, country, description,
 INSERT INTO tb_experience (position, company, city, state, country, description, start_date, end_date) VALUES ('Full Stack Developer', 'Company C', 'Los Angeles', 'CA', 'USA', 'Worked on full stack development.', '2022-01-01', '2023-12-31');
 
 -- Frontend Project A
-INSERT INTO tb_project (name, description, github_url, live_url) VALUES ('Frontend Project A', 'A project focused on frontend development.', 'https://github.com/user/frontend-project-a', 'https://frontend-project-a.com');
+INSERT INTO tb_project (name, short_description, long_description, github_url, live_url) VALUES ('Frontend Project A', 'A project focused on frontend development.', 'This is a detailed description of Frontend Project A.', 'https://github.com/user/frontend-project-a', 'https://frontend-project-a.com');
 
 -- Backend Project B
-INSERT INTO tb_project (name, description, github_url, live_url) VALUES ('Backend Project B', 'A project focused on backend development.', 'https://github.com/user/backend-project-b', 'https://backend-project-b.com');
+INSERT INTO tb_project (name, short_description, long_description, github_url, live_url) VALUES ('Backend Project B', 'A project focused on backend development.', 'This is a detailed description of Backend Project B.', 'https://github.com/user/backend-project-b', 'https://backend-project-b.com');
 
 -- Backend Project C
-INSERT INTO tb_project (name, description, github_url, live_url) VALUES ('Backend Project C', 'Another project focused on backend development.', 'https://github.com/user/backend-project-c', 'https://backend-project-c.com');
+INSERT INTO tb_project (name, short_description, long_description, github_url, live_url) VALUES ('Backend Project C', 'Another project focused on backend development.', 'This is a detailed description of Backend Project C.', 'https://github.com/user/backend-project-c', 'https://backend-project-c.com');
 
 -- Fullstack Project D
-INSERT INTO tb_project (name, description, github_url, live_url) VALUES ('Fullstack Project D', 'A project focused on fullstack development.', 'https://github.com/user/fullstack-project-d', 'https://fullstack-project-d.com');
+INSERT INTO tb_project (name, short_description, long_description, github_url, live_url) VALUES ('Fullstack Project D', 'A project focused on fullstack development.', 'This is a detailed description of Fullstack Project D.', 'https://github.com/user/fullstack-project-d', 'https://fullstack-project-d.com');
 
 -- Images for Frontend Project A (project_id = 1)
 INSERT INTO tb_image(path, img_cover, project_id) VALUES ('/images/frontend-project-a-1.png', true, 1);
