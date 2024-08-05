@@ -33,7 +33,7 @@ public class ExperienceController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseEntity<ExperienceDTO> createExperience(@RequestBody @Valid ExperienceDTO dto) {
+    public ResponseEntity<ExperienceDTO> insert(@RequestBody @Valid ExperienceDTO dto) {
         ExperienceDTO createdExperience = experienceService.insert(dto);
         return ResponseEntity.created(URI.create("/experiences/" + createdExperience.getId())).body(createdExperience);
     }

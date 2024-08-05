@@ -12,10 +12,12 @@ INSERT INTO tb_category (name) VALUES ('Frontend');
 INSERT INTO tb_category (name) VALUES ('Backend');
 INSERT INTO tb_category (name) VALUES ('Fullstack');
 
-INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Project Alpha', 'Description of Project Alpha', 'https://github.com/user/project-alpha', 'https://project-alpha.com', '/images/project-alpha.png');
-INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Project Beta', 'Description of Project Beta', 'https://github.com/user/project-beta', 'https://project-beta.com', '/images/project-beta.png');
-INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Project Gamma', 'Description of Project Gamma', 'https://github.com/user/project-gamma', 'https://project-gamma.com', '/images/project-gamma.png');
-INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Project Delta', 'Description of Project Delta', 'https://github.com/user/project-delta', 'https://project-delta.com', '/images/project-delta.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('JavaScript', 'Advanced', 'JavaScript is a high-level, interpreted programming language.', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', '/images/javascript.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Java', 'Intermediate', 'Java is a high-level, class-based, object-oriented programming language.', 'https://docs.oracle.com/en/java/', '/images/java.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Spring Boot', 'Intermediate', 'Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications.', 'https://spring.io/projects/spring-boot', '/images/spring-boot.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Kubernetes', 'Beginner', 'Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.', 'https://kubernetes.io/docs/home/', '/images/kubernetes.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('React', 'Advanced', 'React is a JavaScript library for building user interfaces.', 'https://reactjs.org/', '/images/react.png');
+INSERT INTO tb_skill (name, level, description, documentation_url, icon_path) VALUES ('Docker', 'Intermediate', 'Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.', 'https://docs.docker.com/', '/images/docker.png');
 
 INSERT INTO tb_education (course_name, workload, institution, start_date, end_date, certificate_url) VALUES ('Computer Science', 320, 'University X', '2018-01-01', '2022-01-01', 'https://example.com/certificate1');
 INSERT INTO tb_education (course_name, workload, institution, start_date, end_date, certificate_url) VALUES ('Web Development', 240, 'Institute Y', '2019-01-01', '2021-12-31', 'https://example.com/certificate2');
@@ -61,7 +63,22 @@ INSERT INTO tb_project_category (project_id, category_id) VALUES (2, 2);  -- Bac
 INSERT INTO tb_project_category (project_id, category_id) VALUES (3, 2);  -- Backend Project C
 INSERT INTO tb_project_category (project_id, category_id) VALUES (4, 3);  -- Fullstack Project D
 
-INSERT INTO tb_project_skill (project_id, skill_id) VALUES (1, 1);  -- Frontend Project A with Project Alpha
-INSERT INTO tb_project_skill (project_id, skill_id) VALUES (2, 2);  -- Backend Project B with Project Beta
-INSERT INTO tb_project_skill (project_id, skill_id) VALUES (3, 3);  -- Backend Project C with Project Gamma
-INSERT INTO tb_project_skill (project_id, skill_id) VALUES (4, 4);  -- Fullstack Project D with Project Delta
+-- Associações entre projetos e habilidades
+
+-- Frontend Project A com JavaScript e React
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (1, 1);  -- Frontend Project A com JavaScript
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (1, 5);  -- Frontend Project A com React
+
+-- Backend Project B com Java e Spring Boot
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (2, 2);  -- Backend Project B com Java
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (2, 3);  -- Backend Project B com Spring Boot
+
+-- Backend Project C com Java e Spring Boot
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (3, 2);  -- Backend Project C com Java
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (3, 3);  -- Backend Project C com Spring Boot
+
+-- Fullstack Project D com JavaScript, React, Java e Spring Boot
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (4, 1);  -- Fullstack Project D com JavaScript
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (4, 5);  -- Fullstack Project D com React
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (4, 2);  -- Fullstack Project D com Java
+INSERT INTO tb_project_skill (project_id, skill_id) VALUES (4, 3);  -- Fullstack Project D com Spring Boot
