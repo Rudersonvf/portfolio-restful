@@ -1,8 +1,7 @@
 package br.com.ruderson.portfolio_restful.DTO;
 
-import br.com.ruderson.portfolio_restful.entities.Category;
-import br.com.ruderson.portfolio_restful.entities.ProjectImage;
-import br.com.ruderson.portfolio_restful.entities.Skill;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +16,20 @@ import java.util.List;
 @Setter
 public class ProjectDTO {
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
+    @Size(min = 20, max = 100, message = "Descrição deve ter entre 20 e 100 caracteres")
     private String shortDescription;
+    @NotBlank(message = "Campo requerido")
+    @Size(min = 20, max = 600, message = "Descrição deve ter entre 20 e 600 caracteres")
     private String longDescription;
     private String githubUrl;
     private String liveUrl;
 
-    private List<ProjectImage> images = new ArrayList<>();
+    private List<ProjectImageDTO> images = new ArrayList<>();
 
-    private List<Category> categories = new ArrayList<>();
+    private List<CategoryDTO> categories = new ArrayList<>();
 
-    private List<Skill> technologies = new ArrayList<>();
+    private List<SkillDTO> technologies = new ArrayList<>();
 }

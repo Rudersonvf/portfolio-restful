@@ -13,16 +13,12 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "projects")
+@ToString
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    @ManyToMany(mappedBy = "categories")
-    private Set<Project> projects = new HashSet<>();
-
 
     @Override
     public boolean equals(Object o) {

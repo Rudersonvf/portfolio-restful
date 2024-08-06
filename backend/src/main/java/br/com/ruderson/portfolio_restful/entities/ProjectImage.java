@@ -1,5 +1,6 @@
 package br.com.ruderson.portfolio_restful.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,8 +20,9 @@ public class ProjectImage {
     private String path;
     private Boolean imgCover;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "project_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    @JsonBackReference
     private Project project;
 
     @Override
