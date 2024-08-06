@@ -1,17 +1,14 @@
-# Use uma imagem base com o JDK 21
-FROM openjdk:21-jdk
+# Use a imagem oficial do OpenJDK 21 como base
+FROM openjdk:21-slim-bookworm
 
-# Define o diretório de trabalho
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copia o projeto para o container
-COPY . .
+# Copie o arquivo .jar da aplicação para o diretório de trabalho
+COPY target/portfolio-restful-0.0.1-SNAPSHOT.jar /app/
 
-# Configura permissões para o Maven Wrapper
-RUN chmod +x ./mvnw
+# Exponha a porta que a aplicação irá usar
+EXPOSE 8080
 
-# Executa o Maven para construir o projeto
-RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
-
-# Define o comando de entrada para iniciar o aplicativo
-CMD ["java", "-Dserver.port=$PORT", "-jar", "target/*jar"]
+# Comando para executar a aplicação
+ENTRYPOINT ["java", "-jar", "/app/portfolio-restful-0.0.1-SNAPSHOT.jar"]
