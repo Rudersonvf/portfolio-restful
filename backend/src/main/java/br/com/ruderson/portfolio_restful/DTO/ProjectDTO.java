@@ -31,5 +31,5 @@ public class ProjectDTO {
 
     private List<CategoryDTO> categories = new ArrayList<>();
 
-    private List<SkillDTO> technologies = new ArrayList<>();
+    private List<SkillResponse> technologies = new ArrayList<>();
 }

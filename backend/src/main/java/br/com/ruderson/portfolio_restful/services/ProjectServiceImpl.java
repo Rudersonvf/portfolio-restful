@@ -88,7 +88,7 @@ public class ProjectServiceImpl implements ProjectService {
         entity.setProjectImages(images);
 
         List<Long> categoriesIds = dto.getCategories().stream().map(CategoryDTO::getId).toList();
-        List<Long> skillsIds = dto.getTechnologies().stream().map(SkillDTO::getId).toList();
+        List<Long> skillsIds = dto.getTechnologies().stream().map(SkillResponse::getId).toList();
 
         Set<Category> categories = new HashSet<>(categoryRepository.findAllById(categoriesIds));
         Set<Skill> technologies = new HashSet<>(skillRepository.findAllById(skillsIds));
@@ -133,7 +133,7 @@ public class ProjectServiceImpl implements ProjectService {
 
             // Atualizar categorias e tecnologias
             List<Long> categoriesIds = dto.getCategories().stream().map(CategoryDTO::getId).toList();
-            List<Long> skillsIds = dto.getTechnologies().stream().map(SkillDTO::getId).toList();
+            List<Long> skillsIds = dto.getTechnologies().stream().map(SkillResponse::getId).toList();
 
             Set<Category> categories = new HashSet<>(categoryRepository.findAllById(categoriesIds));
             Set<Skill> technologies = new HashSet<>(skillRepository.findAllById(skillsIds));

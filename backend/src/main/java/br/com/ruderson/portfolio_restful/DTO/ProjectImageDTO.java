@@ -13,5 +13,4 @@ public class ProjectImageDTO {
     private Long id;
     private String path;
     private Boolean imgCover;
-    private ProjectDTO project;
 }
