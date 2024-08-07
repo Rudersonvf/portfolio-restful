@@ -1,7 +1,17 @@
-FROM maven:3.9.8-eclipse-temurin-21
-COPY . /app
+#
+# Build stage
+#
+FROM maven:3.8.6-openjdk-21 AS build
+WORKDIR /home/app
+COPY pom.xml .
+COPY src /home/app/src
+RUN mvn clean package -DskipTests
+
+#
+# Package stage
+#
+FROM openjdk:21-slim
 WORKDIR /app
-RUN mvn clean package
-RUN mv target/*.jar app.jar
+COPY --from=build /home/app/target/portfolio-restful-0.0.1-SNAPSHOT.jar /app/portfolio-restful.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/portfolio-restful.jar"]
