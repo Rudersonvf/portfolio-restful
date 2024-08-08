@@ -11,4 +11,54 @@
         border-radius: 5px;
         padding: 20px;
     }
+
+    .table-container {
+        border-radius: 5px;
+        overflow: hidden; /* Garantir que o conteúdo não ultrapasse as bordas arredondadas */
+        border: 1px solid rgb(80, 80, 80); /* Borda para visualização */
+    }
+
+    table{
+        width: 100%;
+    border-collapse: separate; /* Permite que o border-radius funcione */
+    border-spacing: 0; /* Remove espaçamento entre células */
+    background-color: transparent;
+
+    thead th:first-child {
+        border-top-left-radius: 5px;
+    }
+    
+    thead th:last-child {
+        border-top-right-radius: 5px;
+    }
+    
+    tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 5px;
+    }
+    
+    tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 5px;
+    }
+
+        thead{
+
+            th{
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid rgb(80, 80, 80);
+
+            }
+        }
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: $bg-3;
+                }
+            }
+            
+            td {
+                padding: 10px;
+            }
+        }
+    }
 }
