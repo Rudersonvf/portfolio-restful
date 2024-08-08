@@ -3,13 +3,13 @@ import AdminAside from "../../components/AdminAside";
 import AdminHeader from "../../components/AdminHeader";
 
 const Admin = () => {
-    return(
+    return (
         <div className="d-flex">
-        <AdminAside/>
-        <div className="container">
-            <AdminHeader/>
-            <Outlet/>
-        </div>
+            <AdminAside />
+            <div className="w-100">
+                <AdminHeader />
+                <Outlet />
+            </div>
         </div>
     );
 }

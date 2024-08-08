@@ -1,0 +1,10 @@
+@import "../../sass/vars.scss";
+
+.admin-header{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: end;
+    font-size: 26px;
+    background-color: $bg-aside;
+}
