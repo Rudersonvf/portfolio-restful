@@ -1,0 +1,14 @@
+@import "../../../sass/vars.scss";
+
+.page-experiences{
+    h3{
+        margin: 20px 0;
+        color: $font-secondary-color;
+    }
+
+    .content{
+        background-color: $bg-aside;
+        border-radius: 5px;
+        padding: 20px;
+    }
+}
