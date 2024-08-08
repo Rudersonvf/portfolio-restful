@@ -1,0 +1,9 @@
+@import "./mixins.scss";
+@import "./vars.scss";
+
+@include reset();
+
+* {
+  font-family: $font-primary;
+  color: $font-primary-color;
+}

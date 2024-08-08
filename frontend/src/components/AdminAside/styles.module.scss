@@ -1,0 +1,33 @@
+@import "../../sass/vars.scss";
+
+.admin-aside {
+  width: 225px;
+  height: 100vh;
+  padding: 20px;
+  background-color: $bg-aside;
+
+  .icon-container {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 50px;
+    img{
+        aspect-ratio: 1;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .link-active {
+    color: $font-secondary-color;
+    font-weight: 600;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+  }
+
+  .link- {
+    font-weight: 400;
+  }
+}

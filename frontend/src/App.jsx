@@ -1,8 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Admin from "./pages/Admin";
+
 function App() {
   return (
-    <>
-      <h1>main</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin/" element={<Admin />}>
+          <Route path="projects" />
+          <Route path="experiences" />
+          <Route path="educations" />
+          <Route path="skills" />
+          <Route path="categories" />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
