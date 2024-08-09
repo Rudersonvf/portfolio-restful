@@ -1,11 +1,18 @@
 @import "../../../sass/vars.scss";
 
 .page-experiences{
-    h3{
-        margin: 20px 0;
-        color: $font-secondary-color;
-    }
 
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid red;
+
+        h3{
+            margin: 20px 0;
+            color: $font-secondary-color;
+        }
+    }
+    
     .content{
         background-color: $bg-aside;
         border-radius: 5px;
@@ -15,14 +22,16 @@
     .table-container {
         border-radius: 5px;
         overflow: hidden; /* Garantir que o conteúdo não ultrapasse as bordas arredondadas */
-        border: 1px solid rgb(80, 80, 80); /* Borda para visualização */
+        border: 1px solid $border-color; /* Borda para visualização */
     }
 
     table{
         width: 100%;
     border-collapse: separate; /* Permite que o border-radius funcione */
     border-spacing: 0; /* Remove espaçamento entre células */
+    
     background-color: transparent;
+
 
     thead th:first-child {
         border-top-left-radius: 5px;
@@ -45,7 +54,7 @@
             th{
                 padding: 10px;
                 text-align: left;
-                border-bottom: 1px solid rgb(80, 80, 80);
+                border-bottom: 1px solid $border-color;
 
             }
         }

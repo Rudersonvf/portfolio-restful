@@ -5,7 +5,20 @@
     .action-container{
         display: flex;
         justify-content: end;
-        gap: 10px;
+        gap: 20px;
         font-size: 20px;
+        
+        svg{
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover{
+                fill: $btn-primary-hover;
+            }
+
+            &:active{
+                fill: $btn-primary-active;
+            }
+        }
     }
 }

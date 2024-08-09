@@ -6,9 +6,9 @@ const ExperienceTableItem = ({ company, startDate, endDate, position }) => {
     return (
         <tr className={styles["experience-table-item"]}>
             <td>{company}</td>
+            <td>{position}</td>
             <td>{startDate}</td>
             <td>{endDate}</td>
-            <td>{position}</td>
             <td className={styles["action-container"]}>
                 <div>
                     <FaPenToSquare />

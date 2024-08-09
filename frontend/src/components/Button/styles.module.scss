@@ -1,0 +1,11 @@
+@import "../../sass/vars.scss";
+
+.component-button{
+    border: 1px solid blue;
+
+    .btn-primary{
+        width: 150px;
+        height: 40px;
+        background-color: $bg-1;
+    }
+}
